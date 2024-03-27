@@ -25,13 +25,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0; // 選択されたタブのインデックス
+  int _selectedIndex = 0;
 
   // タブごとのページ内容
   static const List<Widget> _widgetOptions = <Widget>[
-    Center(child: Text('トップページ')),
-    Center(child: Text('検索ページ')),
-    Center(child: Text('バーコード読み取りページ')),
+    const RecentBooksPage(), // 直近登録した本の一覧
+    const SearchBooksPage(), // タイトル検索
+    const BarcodeScanPage(), // バーコード読み取り
   ];
 
   void _onItemTapped(int index) {
@@ -58,6 +58,38 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
+    );
+  }
+}
+class RecentBooksPage extends StatelessWidget {
+  const RecentBooksPage({Key? key}) : super(key: key); // const コンストラクタを追加
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('直近登録した本の一覧'),
+    );
+  }
+}
+
+class SearchBooksPage extends StatelessWidget {
+  const SearchBooksPage({Key? key}) : super(key: key); // const コンストラクタを追加
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('タイトル検索'),
+    );
+  }
+}
+
+class BarcodeScanPage extends StatelessWidget {
+  const BarcodeScanPage({Key? key}) : super(key: key); // const コンストラクタを追加
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('バーコード読み取り'),
     );
   }
 }
